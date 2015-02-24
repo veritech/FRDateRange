@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "FRDateRange"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.homepage	 = "https://github.com/veritech/FRDateRange"
   s.summary      = "Date Range manipulation"
   s.description  = <<-DESC
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
                    DESC
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "Jonathan Dalrymple" => "jonathan@float-right.co.uk" }
-  s.source       = { :git => "https://github.com/veritech/FRDateRange.git", :tag => "0.1.0" }
+  s.source       = { :git => "https://github.com/veritech/FRDateRange.git", :tag => "0.1.1" }
   s.source_files  = "Classes", "**/*.{h,m}"
   s.requires_arc = true
   
