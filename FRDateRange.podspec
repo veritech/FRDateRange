@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
   
   s.ios.deployment_target = "6.0"  
   s.dependency "NSDate-Escort", "~> 1.4.0"
-  s.dependency "FRDateFormatterCache", "~> 0.1.0"
+  s.dependency "FRDateFormatterCache", "~> 0.2.0"
 end
