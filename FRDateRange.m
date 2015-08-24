@@ -127,4 +127,15 @@
                                         endDate:[self endDate]];
 }
 
+- (BOOL)isEqual:(id)object {
+    if ([object isKindOfClass:[FRDateRange class]]) {
+        return [self isEqualToDateRange:object];
+    }
+    return NO;
+}
+
+- (BOOL)isEqualToDateRange:(FRDateRange *)dateRange {
+    return [self.startDate isEqualToDate:dateRange.startDate] && [self.endDate isEqualToDate:dateRange.endDate];
+}
+
 @end

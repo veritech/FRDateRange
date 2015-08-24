@@ -28,6 +28,8 @@
 
 - (BOOL)isDateInRange:(NSDate *)aDate;
 
+- (BOOL)isEqualToDateRange:(FRDateRange *)dateRange;
+
 + (NSPredicate *)predicateWithKeyPath:(NSString *) aKeyPath startDate:(NSDate *)start endDate:(NSDate *)end;
 
 - (NSPredicate *)predicateWithKeyPath:(NSString *)aKeyPath;
