@@ -57,6 +57,21 @@
                                        endDate:[self startDate]];
 }
 
+- (FRDateRange *)dateRangeByAdvancedByMinutes:(NSInteger)minutesToAdd {
+    return [FRDateRange dateRangeWithStartDate:[self.startDate dateByAddingMinutes:minutesToAdd]
+                                       endDate:[self.endDate dateByAddingMinutes:minutesToAdd]];
+}
+
+- (FRDateRange *)dateRangeByAdvancedByHours:(NSInteger)hoursToAdd {
+    return [FRDateRange dateRangeWithStartDate:[self.startDate dateByAddingHours:hoursToAdd]
+                                       endDate:[self.endDate dateByAddingHours:hoursToAdd]];
+}
+
+- (FRDateRange *)dateRangeByAdvancedByDays:(NSInteger)daysToAdd {
+    return [FRDateRange dateRangeWithStartDate:[self.startDate dateByAddingDays:daysToAdd]
+                                       endDate:[self.endDate dateByAddingDays:daysToAdd]];
+}
+
 - (FRDateRange *)dateRangeByAdvancedByMonths:(NSInteger)monthsToAdd {
     return [FRDateRange dateRangeWithStartDate:[self.startDate dateByAddingMonths:monthsToAdd]
                                        endDate:[self.endDate dateByAddingMonths:monthsToAdd]];
@@ -70,7 +85,6 @@
 #pragma mark - SMhDateRange Utilities
 - (BOOL)isDateInRange:(NSDate *)aDate
 {
-    
     if ([[self startDate] isEarlierThanOrEqualDate:aDate] &&
         [[self endDate] isLaterThanOrEqualDate:aDate]) {
         return YES;

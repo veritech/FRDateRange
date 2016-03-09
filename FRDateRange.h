@@ -9,46 +9,49 @@
 
 @interface FRDateRange : NSObject <NSCopying>
 
-@property (nonatomic,strong,readonly) NSDate *startDate;
-@property (nonatomic,strong,readonly) NSDate *endDate;
+@property (nonnull, nonatomic,strong,readonly) NSDate *startDate;
+@property (nonnull, nonatomic,strong,readonly) NSDate *endDate;
 
 /**
  *  Create a data range with dates, without having to check when the order
  *  It will sort the dates and create a range with earliest date, and the latest date
  */
-+ (instancetype)dateRangeWithDates:(NSArray *)dates;
++ (instancetype)dateRangeWithDates:(NSArray * _Nonnull)dates;
 
-+ (instancetype)dateRangeWithStartDate:(NSDate *)startDate
-                     endDate:(NSDate *)endDate;
++ (instancetype)dateRangeWithStartDate:(NSDate * _Nonnull)startDate
+							   endDate:(NSDate * _Nonnull)endDate;
 
+- (instancetype)initWithStartDate:(NSDate * _Nonnull)startDate
+                          endDate:(NSDate * _Nonnull)endDate;
 
+- (BOOL)isDateInRange:(NSDate * _Nonnull)aDate;
 
-- (instancetype)initWithStartDate:(NSDate *)startDate
-                endDate:(NSDate *)endDate;
+- (BOOL)isEqualToDateRange:(FRDateRange * _Nonnull)dateRange;
 
-- (BOOL)isDateInRange:(NSDate *)aDate;
++ (NSPredicate * _Nonnull)predicateWithKeyPath:(NSString * _Nonnull) aKeyPath
+                            startDate:(NSDate * _Nonnull)start
+                              endDate:(NSDate * _Nonnull)end;
 
-- (BOOL)isEqualToDateRange:(FRDateRange *)dateRange;
+- (NSPredicate * _Nonnull)predicateWithKeyPath:(NSString * _Nonnull)aKeyPath;
 
-+ (NSPredicate *)predicateWithKeyPath:(NSString *) aKeyPath startDate:(NSDate *)start endDate:(NSDate *)end;
-
-- (NSPredicate *)predicateWithKeyPath:(NSString *)aKeyPath;
-
-- (NSString *)stringRepresentationWithFormat:(NSString *)aFormat
-                                   seperator:(NSString *)aSeperator;
+- (NSString * _Nonnull)stringRepresentationWithFormat:(NSString * _Nonnull)aFormat
+                                   seperator:(NSString * _Nonnull)aSeperator;
 
 - (NSTimeInterval)duration;
 
 /*
  *  Date range of exactly the same duration starting the day after the end
  */
-- (FRDateRange *)dateRangeForNextPeriod;
-- (FRDateRange *)dateRangeForPreviousPeriod;
+- (FRDateRange * _Nonnull)dateRangeForNextPeriod;
+- (FRDateRange * _Nonnull)dateRangeForPreviousPeriod;
 
 /**
  *  Keep the same date range, and advance both the start and end date by the given amount
  */
-- (FRDateRange *)dateRangeByAdvancedByMonths:(NSInteger)monthsToAdd;
-- (FRDateRange *)dateRangeByAdvancedByYears:(NSInteger)yearsToAdd;
+- (FRDateRange * _Nonnull)dateRangeByAdvancedByMinutes:(NSInteger)minutesToAdd;
+- (FRDateRange * _Nonnull)dateRangeByAdvancedByHours:(NSInteger)hoursToAdd;
+- (FRDateRange * _Nonnull)dateRangeByAdvancedByDays:(NSInteger)daysToAdd;
+- (FRDateRange * _Nonnull)dateRangeByAdvancedByMonths:(NSInteger)monthsToAdd;
+- (FRDateRange * _Nonnull)dateRangeByAdvancedByYears:(NSInteger)yearsToAdd;
 
 @end
