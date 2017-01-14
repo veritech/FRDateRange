@@ -1,0 +1,3 @@
+language: OBJECTIVE-C
+osx_image: xcode7.2
+
